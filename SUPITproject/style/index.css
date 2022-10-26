@@ -12,20 +12,6 @@
 	z-index: -1;
 }
 
-.typing-text {
-	overflow: hidden;
-	border-right: .15em solid orange;
-	font-size: 2em;
-	width: 0;
-	color: white;
-	animation: typing-out 1s steps(20, end) forwards;
+#pocetna #typewriter {
+    font-size: clamp(1rem,5vw,5rem);
 }
-
-.typing{
-	display: inline-block;
-}
-
-@keyframes typing-out {
-	from { width: 0 }
-	to { width: 100% }
-  }
