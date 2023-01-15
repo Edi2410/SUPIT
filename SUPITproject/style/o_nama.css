@@ -1,9 +1,14 @@
+
+
+
 * {
+    scroll-behavior: smooth;
     margin: 0;
     padding: 0;
 }
 
 .image-container {
+    margin-top: 55px;
     overflow: hidden;
     min-width: 100%;
     height: 40vh;
@@ -71,7 +76,6 @@
     padding: 10px 15%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 'specijalizirano izbalansirano izvrsno'
 }
 
 .paragraph-grid>div {
@@ -129,7 +133,8 @@
     grid-template-columns: repeat(2, 1fr);
 }
 .doNasBackground{
-    background-image: url('../attachment/img/kakoDoNas.png')
+    background-image: url('../attachment/img/kakoDoNas.png');
+    background-attachment: fixed;
 }
 
 .doNas-grid> div {
@@ -178,6 +183,7 @@
     position: relative;
     top: -165px;
     left: 0;
+    text-shadow: 2px 2px 5px #000000;
 }
 
 @keyframes zgrada_ulaz {

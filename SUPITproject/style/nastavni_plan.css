@@ -1,0 +1,10 @@
+.title {
+    animation: slide-in-bottom 1s;
+    text-align: center;
+    margin: 80px 25% 50px 25%;
+    border-bottom: 4px gold solid;
+}
+.title>h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
