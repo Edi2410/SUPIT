@@ -1,10 +1,98 @@
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 20px;
+}
+
 .title {
     animation: slide-in-bottom 1s;
     text-align: center;
     margin: 80px 25% 50px 25%;
     border-bottom: 4px gold solid;
+    animation: slide-in-bottom 0.7s;
 }
 .title>h1 {
     font-size: 30px;
     font-weight: bold;
 }
+
+.inputKolegij{
+    font-weight: bold;
+    margin-right: 20px;
+    height: 300px;
+}
+
+.inputKolegij > input{
+    min-width: 75%;
+    width: 100%;
+    border: 1px solid rgba(116, 116, 116, 0.499);
+    border-radius: 4px;
+    padding: 5px;
+    margin-top: 10px;
+}
+table > thead > tr > th{
+    border-top: 1px solid rgba(137, 137, 137, 0.4) ;
+    padding: 5px 20px 5px 5px;
+}
+table > tbody > tr:nth-child(odd){
+    background-color: rgba(180, 179, 179, 0.351);
+}
+table > tbody > tr > td{
+    padding: 5px;
+    border-top: 1px solid rgba(137, 137, 137, 0.4) ;
+    padding-right: 20px;    
+}
+table{
+    margin-bottom: 50px;
+}
+html,body {
+    overflow-x: hidden ;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+body>* {
+    flex-shrink: 0;
+}
+#sum > td{
+    font-weight: bold;
+    border-top: 2px solid rgb(120, 119, 119);
+    background-color: white;
+}
+.end {
+    flex-grow: 1;
+    background-image: url('../attachment/img/zaiskri-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    display: flex;
+}
+
+.end>div {
+    width: 100%;
+    bottom: 0;
+}
+
+.end-text {
+    text-shadow: 2px 2px 5px #000000;
+    margin: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 42px;
+    text-transform: uppercase;
+    text-align: center;
+    align-items: center;
+}
+@keyframes slide-in-bottom {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+

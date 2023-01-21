@@ -1,5 +1,8 @@
 
-
+html,
+body {
+    overflow-x: hidden;
+}
 
 * {
     scroll-behavior: smooth;
@@ -66,14 +69,15 @@
 #algebraGrupa {
     opacity: 0;
 }
-#kakoDoNas{
+
+#kakoDoNas {
     opacity: 0;
 }
 
 .paragraph-grid {
     margin: 30px 0;
     width: 100%;
-    padding: 10px 15%;
+    padding: 10px 8%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
@@ -81,7 +85,7 @@
 .paragraph-grid>div {
     text-align: justify;
     border: 1px solid rgba(157, 157, 157, 0.645);
-    margin: 3px;
+    margin: 10px;
     padding: 20px;
     border-radius: 7px;
 }
@@ -132,12 +136,13 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
-.doNasBackground{
+
+.doNasBackground {
     background-image: url('../attachment/img/kakoDoNas.png');
     background-attachment: fixed;
 }
 
-.doNas-grid> div {
+.doNas-grid>div {
     color: black;
     border: 1px solid black;
     opacity: 1;
@@ -145,45 +150,54 @@
     margin: 50px 10px 10px 10px;
     padding: 15px;
     border-radius: 5px;
-}    
-.doNas-grid> div >p {
+}
+
+.doNas-grid>div>p {
     padding: 20px 50px;
     font-size: 16px;
-}   
-.doNas-grid> div >h5 {
+}
+
+.doNas-grid>div>h5 {
     font-size: 20px;
     font-weight: 700;
-}   
+}
 
-.gmap_canvas > #gmap_canvas {
+.gmap_canvas>#gmap_canvas {
     height: 399px;
     width: 100%;
     margin: 5px;
     border-radius: 10px;
 
 }
+
 .mapouter {
     padding: 0px 15%;
     margin: 0px 20px;
 }
-.end >img{
-    object-fit: cover;
+
+.end {
+    flex-grow: 1;
+    background-image: url('../attachment/img/zaiskri-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    display: flex;
+}
+
+.end>div {
     width: 100%;
-    height: 200px;
+    bottom: 0;
 }
-.end > div{
-    height:0;
-}
-.end-text{
+
+.end-text {
+    text-shadow: 2px 2px 5px #000000;
+    margin: 10px;
     color: white;
     font-weight: 700;
     font-size: 42px;
     text-transform: uppercase;
     text-align: center;
-    position: relative;
-    top: -165px;
-    left: 0;
-    text-shadow: 2px 2px 5px #000000;
+    align-items: center;
 }
 
 @keyframes zgrada_ulaz {

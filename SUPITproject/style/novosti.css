@@ -58,14 +58,14 @@
 html,
 body {
     height: 100%;
-
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
 }
 
-body>* {
-    flex-shrink: 0;
-}
+    body>* {
+        flex-shrink: 0;
+    }
 
 .end {
     flex-grow: 1;
@@ -78,7 +78,6 @@ body>* {
 
 .end>div {
     width: 100%;
-    height: 50%;
     bottom: 0;
 }
 
