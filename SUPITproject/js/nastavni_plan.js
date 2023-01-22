@@ -34,6 +34,10 @@ $(() => {
                     <td>${datas.data.tip}</td>
                     <td><button id="deleteRow" class='btn btn-danger'>Obriši</button></td>
                     </tr>`)
+                    $('#sumaECTS').text(Number($('#sumaECTS').text()) + datas.data.ects);
+                    $('#sumaHours').text(Number($('#sumaHours').text()) + datas.data.sati);
+                    $('#sumaClass').text(Number($('#sumaClass').text()) + datas.data.predavanja);
+                    $('#sumaPrac').text(Number($('#sumaPrac').text()) + datas.data.vjezbe);
                 },
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -42,6 +46,11 @@ $(() => {
         }
     });
     $('table').on('click', '#deleteRow', function () {
+        var currentRow = $(this).closest("tr"); 
+        $('#sumaECTS').text(Number($('#sumaECTS').text()) - Number(currentRow.find("td:eq(1)").text()));
+        $('#sumaHours').text(Number($('#sumaHours').text()) - Number(currentRow.find("td:eq(2)").text()));
+        $('#sumaClass').text(Number($('#sumaClass').text()) - Number(currentRow.find("td:eq(3)").text()));
+        $('#sumaPrac').text(Number($('#sumaPrac').text()) - Number(currentRow.find("td:eq(4)").text()));
         $(this).closest('tr').remove();
     });
 });

@@ -17,7 +17,7 @@ $(() => {
         if(response.isSuccess){
           localStorage.setItem('token', response.data['token']);
           localStorage.setItem('username', response.data['username']);
-          location.href = 'index.html'
+          location.href = 'index.html';
         }
 
     });

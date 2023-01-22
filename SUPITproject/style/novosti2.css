@@ -1,6 +1,11 @@
-
-html, body{
-    overflow-x:hidden;
+html,body {
+    overflow-x: hidden ;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+body>* {
+    flex-shrink: 0;
 }
 
 * {
@@ -55,20 +60,22 @@ html, body{
 }
 
 
-.end{
-    animation: fade-in 1s;
+.end {
     flex-grow: 1;
     background-image: url('../attachment/img/zaiskri-bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     align-items: center;
-    display:flex;
-  }
-.end > div{
+    display: flex;
+}
+
+.end>div {
     width: 100%;
     bottom: 0;
 }
-.end-text{
+
+.end-text {
+    text-shadow: 2px 2px 5px #000000;
     margin: 10px;
     color: white;
     font-weight: 700;
@@ -76,7 +83,6 @@ html, body{
     text-transform: uppercase;
     text-align: center;
     align-items: center;
-    text-shadow: 2px 2px 5px #000000;
 }
 
 @keyframes photo_ulaz {
