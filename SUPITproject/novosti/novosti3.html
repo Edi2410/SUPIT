@@ -102,35 +102,57 @@
             <p class="end-text text-danger">Zaiskri</p>
         </div>
     </section>
-      <div id="myModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><i class="fa-solid fa-envelope"></i>&nbsp;Kontaktirajte nas</h2>
-            </div>
-            <div class="modal-body">
-                <form action="https://www.fulek.com/mvc/supit/project-contact-form" method="POST">
-                    <label for="FullName"><b>Puno Ime</b></label><br>
-                    <input type="text" id="FullName" class="kontakt_txtbox" name="FullName"><br>
-                    <label for="Email"><b>E-mail</b></label><br>
-                    <input type="text" id="Email" class="kontakt_txtbox" name="Email"><br>
-                    <label for="Importance"><b>Važnost</b></label><br>
-                    <select id="Importance" class="kontakt_txtbox" name="Importance">
-                        <option value="low">Niska</option>
-                        <option value="medium">Srednja</option>
-                        <option value="high">Visoka</option>
-                    </select><br>
-                    <label for="Message"><b>Poruka</b></label><br>
-                    <textarea id="Message" class="kontakt_txtbox" name="Message" rows="5" cols="30"></textarea><br>
-                    <label for="ReceiveNewsletter">Želim primati obavijesti</label>
-                    <input type="checkbox" id="ReceiveNewsletter" class="kontakt_txtbox" name="ReceiveNewsletter"
-                        value="true" checked="checked"><br>
-                    <input type="submit" id="sent_btn" value="Pošalji">
-                    <input type="button" id="close_btn" value="Odustani">
-                </form>
-            </div>
+    <div class="modal dp-n bg-dark bg-opacity-50" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog mt-5 pt-5 " role="document">
+        <div class="modal-content w-100">
+            <form action="https://www.fulek.com/mvc/supit/project-contact-form" method="POST">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Kontaktirajte nas</h4>
+                    <button type="button" id="close_btn" class="close btn btn-danger" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-2">
+                        <i class="fas fa-user prefix grey-text"></i>
+                        <label data-error="wrong" data-success="right" for="form34">Ime i Prezime</label>
+                        <input type="text" id="form34" class="form-control validate">
+                    </div>
+
+                    <div class="md-form mb-2">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <label data-error="wrong" data-success="right" for="form29">Email</label>
+                        <input type="email" id="form29" class="form-control validate">
+                    </div>
+
+                    <div class="md-form mb-2">
+                        <label data-error="wrong" data-success="right" for="form29">Prioritet</label>
+                        <select class="form-control">
+                            <option>Srednji prioritet</option>
+                            <option>Visoki prioritet</option>
+                            <option>Mali prioritet</option>
+                        </select>
+                    </div>
+                    <div class="md-form">
+                        <label data-error="wrong" data-success="right" for="form8">Poruka</label>
+                        <i class="fas fa-pencil prefix grey-text"></i>
+                        <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
+                    </div>
+
+                    <div class="md-form mb-2">
+                        <label for="ReceiveNewsletter">Želim primati obavijesti</label>
+                        <input type="checkbox" id="ReceiveNewsletter" class="kontakt_txtbox"
+                            name="ReceiveNewsletter" value="true" checked="checked"><br>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-danger">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+                </div>
+            </form>
         </div>
     </div>
-
+</div>
 </body>
 
 </html>

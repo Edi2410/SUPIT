@@ -11,6 +11,9 @@ html, body{
 	z-index: -1;
 	object-fit:cover;
 }
+#nastavniPlan{
+	display:none;
+}
 
 #typewriter{
 	z-index: 1;

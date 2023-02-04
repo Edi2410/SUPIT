@@ -1,23 +1,19 @@
 
-$(async () =>{
-    const timer = ms => new Promise(res => setTimeout(res, ms))
+$(async () => {
     var $line = $("#line1");
-    const data = "Budi izvrstan u onom što vidiš!$voliš!?ZAISKRI. "
-
-    for (let index = 0; index < data.length; index++) {
-        if(data[index] == '?'){
-            $line.css({'animation': 'none'})
+    const data = "Budi izvrstan u onom što vidiš!--$voliš!?ZAISKRI. "
+    let index = 0;
+    const intervalId = setInterval(() => {
+        const char = data[index++];
+        if (char == '?') {
+            $line.css({ 'animation': 'none' })
             $line = $("#line2")
-            $line.css({'animation': 'blinkCursor 0.5s infinite'})
-        }else if(data[index] == '$'){
-            await timer(250)
+            $line.css({ 'animation': 'blinkCursor 0.5s infinite' })
+        } else if (char == '$') {
             $line.text("Budi izvrstan u onom što ")
-        }else{
-            $line.append(data[index])
+        } else if (char != '-') {
+            $line.append(char)
         }
-        await timer(150)
-    }
-
-
-
+        if (index == data.length) clearInterval(intervalId);
+    }, 150);
 });

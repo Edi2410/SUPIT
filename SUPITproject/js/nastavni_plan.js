@@ -1,52 +1,60 @@
 $(() => {
     const autoCompleteArray = [];
     const dictKolegij = {};
-    var sum = [];
-    const response = $.ajax({
+    $.ajax({
         url: 'https://www.fulek.com/data/api/supit/curriculum-list/hr',
         type: 'GET',
         dataType: 'json',
-        success: function (datas) {
-            for (let index = 0; index < datas.data.length; index++) {
-                autoCompleteArray.push(datas.data[index]['kolegij']);
-                dictKolegij[datas.data[index]['kolegij']] = index + 1;
-            }
+        success: data => {
+            data.data.forEach((item, i) => {
+                autoCompleteArray.push(item.kolegij);
+                dictKolegij[item.kolegij] = i + 1;
+            });
         },
         headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('token')
+            Authorization: 'Bearer ' + sessionStorage.token
         }
     });
     $('#naziv').autocomplete({
         maxShowItems: 5,
         source: autoCompleteArray,
         select: function (event, ui) {
+            console.log(dictKolegij[ui.item.label])
             details = $.ajax({
                 url: 'https://www.fulek.com/data/api/supit/get-curriculum/' + dictKolegij[ui.item.label],
                 type: 'GET',
                 dataType: 'json',
                 success: function (datas) {
-                    $('table tbody tr:last-child').before(`<tr>
-                    <td>${datas.data.kolegij}</td>
-                    <td>${datas.data.ects}</td>
-                    <td>${datas.data.sati}</td>
-                    <td>${datas.data.predavanja}</td>
-                    <td>${datas.data.vjezbe}</td>
-                    <td>${datas.data.tip}</td>
-                    <td><button id="deleteRow" class='btn btn-danger'>Obriši</button></td>
-                    </tr>`)
+                    console.log(datas);
+                    $("table")
+                        .find("tbody")
+                        .prepend(
+                            $("<tr>")
+                                .append($("<td>").text(datas.data.kolegij)) 
+                                .append($("<td>").text(datas.data.ects)) 
+                                .append($("<td>").text(datas.data.sati))
+                                .append($("<td>").text(datas.data.predavanja))
+                                .append($("<td>").text(datas.data.vjezbe))
+                                .append($("<td>").text(datas.data.tip))
+                                .append(
+                                    $("<td>").append(
+                                        $(`<button id="deleteRow" class="btn btn-danger">`).text("Obrisi")
+                                    )
+                                )
+                        );
                     $('#sumaECTS').text(Number($('#sumaECTS').text()) + datas.data.ects);
                     $('#sumaHours').text(Number($('#sumaHours').text()) + datas.data.sati);
                     $('#sumaClass').text(Number($('#sumaClass').text()) + datas.data.predavanja);
                     $('#sumaPrac').text(Number($('#sumaPrac').text()) + datas.data.vjezbe);
                 },
                 headers: {
-                    Authorization: 'Bearer ' + localStorage.getItem('token')
+                    Authorization: 'Bearer ' + sessionStorage.token
                 }
             });
         }
     });
     $('table').on('click', '#deleteRow', function () {
-        var currentRow = $(this).closest("tr"); 
+        var currentRow = $(this).closest("tr");
         $('#sumaECTS').text(Number($('#sumaECTS').text()) - Number(currentRow.find("td:eq(1)").text()));
         $('#sumaHours').text(Number($('#sumaHours').text()) - Number(currentRow.find("td:eq(2)").text()));
         $('#sumaClass').text(Number($('#sumaClass').text()) - Number(currentRow.find("td:eq(3)").text()));

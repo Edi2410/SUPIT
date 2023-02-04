@@ -21,7 +21,9 @@ body>* {
     height: 40vh;
     animation: photo_ulaz 0.8s;
 }
-
+#nastavniPlan{
+	display:none;
+}
 .image-container>img {
     object-fit: fill;
     width: 100%;
